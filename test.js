@@ -17,8 +17,16 @@ if (orderTotal({
 
 if (orderTotal({
   items: [
-    {name: 'Dragon collar', price: 20 },
-    {name: 'Dragon chew toy', price: 40}
+    {name: 'Dragon candy', price: 3}
+  ]
+}) !== 3) {
+  throw new Error('Check fail: no quantity specified')
+}
+
+if (orderTotal({
+  items: [
+    {name: 'Dragon collar', price: 20, quantity: 1 },
+    {name: 'Dragon chew toy', price: 40, quantity: 1}
   ]
 }) !== 60) {
   throw new Error('Check fail: happy path (2)')
