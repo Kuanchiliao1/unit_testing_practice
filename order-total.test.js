@@ -1,3 +1,5 @@
+const orderTotal = require('order-total')
+
 if (orderTotal({
   items: [
     {name: 'Dragon food', price: 8 },
@@ -32,9 +34,3 @@ if (orderTotal({
   throw new Error('Check fail: happy path (2)')
 }
 
-function orderTotal(order) {
-  return order.items.reduce((total, item) => {
-    const quantity = item.quantity || 1    
-    return total + item.price * quantity
-  }, 0)
-}
