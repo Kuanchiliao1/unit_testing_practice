@@ -9,6 +9,14 @@ if (orderTotal({
 
 if (orderTotal({
   items: [
+    { name: 'Dragon candy', price: 2, quantity: 3 }
+  ]
+}) !== 6) {
+  throw new Error('Check fail: Quantity')
+}
+
+if (orderTotal({
+  items: [
     {name: 'Dragon collar', price: 20 },
     {name: 'Dragon chew toy', price: 40}
   ]
@@ -17,7 +25,8 @@ if (orderTotal({
 }
 
 function orderTotal(order) {
-  return order.items.reduce((total, item) => {    
-    return total + item.price
+  return order.items.reduce((total, item) => {
+    const quantity = item.quantity || 1    
+    return total + item.price * quantity
   }, 0)
 }
